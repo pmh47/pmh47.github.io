@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Paul Henderson</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal website">
+  <meta property="og:title" content="pmh47.github.io">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:description" content="Personal website">
+  <meta property="og:url" content="http://www.pmh47.net/">
+  <meta property="og:site_name" content="pmh47.github.io">
+  <link rel="canonical" href="http://www.pmh47.net/">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready ( function(){
+       $('a.bibtex-link').click(function(event) {
+         let bibtexDiv = $(event.target).parents('.paper').find('.bibtex');
+         bibtexDiv.toggle();
+         let bibtexTextArea = bibtexDiv.children('textarea');
+         bibtexTextArea.css('height', bibtexTextArea.prop('scrollHeight') + 'px');
+         bibtexTextArea.select();
+         return false;
+       });
+    });
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel:700|Open+Sans&display=swap">
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12pt;
+      line-height: 1.4;
+      color: #505050;
+    }
+    a {
+      color: #303090;
+      text-decoration: none;
+    }
+/*
+    a:hover {
+      text-decoration: underline dotted;
+    }
+*/
+    #container {
+      max-width: 900px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #header {
+      margin-top: 12pt;
+      border-bottom: 1px solid #505050;
+    }
+    @media(min-width: 400px) {
+      #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    #name {
+      vertical-align: middle;
+      font-family: 'Cinzel', serif;
+      font-size: 2em;
+      font-weight: 600;
+    }
+    #email {
+      font-size: 12pt;
+      vertical-align: middle;
+    }
+    #subhead {
+      font-weight: 700;
+      font-size: 14pt;
+    }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 20pt;
+      font-weight: 600;
+      border-bottom: 1px solid #505050;
+    }
+    .paper
+    {
+      padding: 8pt;
+      clear: both;
+      margin-bottom: 12pt;
+    }
+    .paper .thumbnail {
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: 16pt;
+    }
+    @media (max-width: 920px) {
+      .paper .thumbnail {
+        width: 270px;
+      }
+    }
+    @media (min-width: 920px) {
+      .paper .thumbnail {
+        width: 270px;
+      }
+      .paper .content {
+        width: 570px;
+      }
+    }
+    .paper .thumbnail img {
+      width: 100%;
+    }
+    .paper .content {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .paper .title {
+      font-weight: 700;
+      font-size: 14pt;
+      margin-bottom: 4pt;
+    }
+    .paper .authors {
+    }
+    .paper .reference {
+      font-weight: 700;
+      margin-bottom: 4pt;
+    }
+    .paper .bibtex {
+      display: none;
+      margin-top: 8pt;
+    }
+    .paper .bibtex textarea {
+      width: 100%;
+      background: #eeeeee;
+    }
+    #copyright {
+      margin-top: 18pt;
+      border-top: 1px solid #a0a0a0;
+      text-align: center;
+      color: #a0a0a0;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+      
+    <div id="header">
+      <div id="name">Paul Henderson</div>
+      <div id="email"><i class="far fa-envelope"></i>paul@pmh47.net</div>
+    </div>
+    <!--div id="subhead">Postdoc in Computer Vision and Machine Learning at IST Austria</div-->
+
+    <p>
+      I am a postdoc in the 
+      <a href="https://cvml.ist.ac.at">Computer Vision and Machine Learning Group</a> at the 
+      <a href="https://www.ist.ac.at">Institute of Science and Technology (IST) Austria</a>.
+      My research focuses on unsupervised learning, in particular for generative modelling and 3D 
+      reconstruction; it therefore lies at the intersection of machine learning, computer vision, and 
+      computer graphics.
+    </p>
+
+    <h2>Research</h2>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/cvpr20.png" /></div>
+      <div class="content">
+        <div class="title">Leveraging 2D Data to Learn Textured 3D Mesh Generation</div>
+        <div class="authors">Paul Henderson, Vagia Tsiminaki and Christoph Lampert</div>
+        <div class="reference">CVPR 2020 (oral)</div>
+        <div class="links"><a href="#">Paper (coming soon!)</a> - <a href="#">Code (coming soon!)</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@inproceedings{henderson20cvpr,
+  title={Leveraging {2D} Data to Learn Textured {3D} Mesh Generation},
+  author={Paul Henderson and Vagia Tsiminaki and Christoph Lampert},
+  booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year={2020}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/corr20.png" /></div>
+      <div class="content">
+        <div class="title">Object-Centric Image Generation with Factored Depths, Locations, and
+    Appearances</div>
+        <div class="authors">Titas Anciukevicius, Christoph Lampert and Paul Henderson</div>
+        <div class="reference">CoRR 2020</div>
+        <div class="links"><a href="https://arxiv.org/abs/2004.00642">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@misc{anciukevicius20corr,
+  title={Object-Centric Image Generation with Factored Depths, Locations, and Appearances},
+  author={Titas Anciukevi\v{c}ius and Christoph Lampert and Paul Henderson},
+  howpublished={arXiv:2004.00642},
+  year={2020}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/ijcv19.png" /></div>
+      <div class="content">
+        <div class="title">Learning Single-Image 3D Reconstruction by Generative Modelling of Shape, Pose and Shading</div>
+        <div class="authors">Paul Henderson and Vittorio Ferrari</div>
+        <div class="reference">IJCV 2019</div>
+        <div class="links"><a href="https://doi.org/10.1007/s11263-019-01219-8">Paper</a> - <a href="http://arxiv.org/abs/1901.06447">arXiv</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@article{henderson19ijcv,
+  title={Learning Single-Image {3D} Reconstruction by Generative Modelling of Shape, Pose and Shading},
+  author={Henderson, Paul and Ferrari, Vittorio},
+  journal={International Journal of Computer Vision (IJCV)},
+  year={2019},
+  doi={10.1007/s11263-019-01219-8}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/bmvc18.png" /></div>
+      <div class="content">
+        <div class="title">Learning to Generate and Reconstruct 3D Meshes with only 2D Supervision</div>
+        <div class="authors">Paul Henderson and Vittorio Ferrari</div>
+        <div class="reference">BMVC 2018 (oral)</div>
+        <div class="links"><a href="https://arxiv.org/abs/1807.09259">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@inproceedings{henderson18bmvc,
+  title={Learning to Generate and Reconstruct {3D} Meshes with only {2D} Supervision},
+  author={Henderson, Paul and Ferrari, Vittorio},
+  booktitle={British Machine Vision Conference (BMVC)},
+  year={2018}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/corr17.png" /></div>
+      <div class="content">
+        <div class="title">Automatic Generation of Constrained Furniture Layouts</div>
+        <div class="authors">Paul Henderson, Kartic Subr and Vittorio Ferrari</div>
+        <div class="reference">CoRR 2017</div>
+        <div class="links"><a href="https://arxiv.org/abs/1711.10939">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@misc{henderson17corr,
+  title={Automatic Generation of Constrained Furniture Layouts},
+  author={Paul Henderson and Kartic Subr and Vittorio Ferrari},
+  howpublished={arXiv:1711.10939},
+  year={2017}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/accv16.png" /></div>
+      <div class="content">
+        <div class="title">End-to-end Training of Object Class Detectors for Mean Average Precision</div>
+        <div class="authors">Paul Henderson and Vittorio Ferrari</div>
+        <div class="reference">ACCV 2016</div>
+        <div class="links"><a href="https://arxiv.org/abs/1607.03476">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@inproceedings{henderson16accv,
+  title={End-to-End Training of Object Class Detectors for Mean Average Precision},
+  author={Henderson, Paul and Ferrari, Vittorio},
+  booktitle={Asian Conference on Computer Vision (ACCV)},
+  year={2016},
+  pages={198--213}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/eccv16.png" /></div>
+      <div class="content">
+        <div class="title">Automatically Selecting Inference Algorithms for Discrete Energy Minimisation</div>
+        <div class="authors">Paul Henderson and Vittorio Ferrari</div>
+        <div class="reference">ECCV 2016</div>
+        <div class="links"><a href="https://doi.org/10.1007/978-3-319-46454-1_15">Paper</a> - <a href="https://arxiv.org/abs/1511.06214">arXiv</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@inproceedings{henderson16eccv,
+  title={Automatically Selecting Inference Algorithms for Discrete Energy Minimisation},
+  author={Henderson, Paul and Ferrari, Vittorio},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2016},
+  pages={235--252}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <h2>Biography</h2>
+
+    <p>
+    I completed a BA in Mathematics at the University of Cambridge in 2009, followed 
+    by an MSc in Informatics at the University of Edinburgh in 2010.
+    I then worked at <a href="https://www.blackfordanalysis.com">Blackford Analysis</a>
+    for four years, on research and development for medical imaging applications.
+    I completed my PhD in 2018 at the University of Edinburgh in the 
+    <a href="https://calvin-vision.net">CALVIN group</a> supervised by 
+    <a href="https://sites.google.com/view/vittoferrari">Vittorio Ferrari</a>.
+    I am currently a postdoc at <a href="https://www.ist.ac.at">IST Austria</a> 
+    in the group of <a href="https://cvml.ist.ac.at/index.html">Christoph Lampert</a>.
+    </p>
+    <p>My curriculum vitae is available <a href="cv.pdf">here</a></p>
+
+    <div id="copyright">
+            Copyright (C) 2020 Paul Henderson, All Rights Reserved 
+    </div>
+
+  </div>
+    
+  </body>
+</html>
