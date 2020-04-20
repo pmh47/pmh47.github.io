@@ -83,14 +83,15 @@
     }
     .paper
     {
-      padding: 8pt;
+      padding-top: 8pt;
+      padding-bottom: 8pt;
       clear: both;
       margin-bottom: 12pt;
     }
     .paper .thumbnail {
       display: inline-block;
       vertical-align: middle;
-      padding-right: 16pt;
+      padding-right: 13pt;
     }
     @media (max-width: 920px) {
       .paper .thumbnail {
@@ -115,13 +116,20 @@
     .paper .title {
       font-weight: 700;
       font-size: 14pt;
+      margin-left: 3pt;
       margin-bottom: 4pt;
     }
     .paper .authors {
+      margin-left: 3pt;
     }
     .paper .reference {
       font-weight: 700;
+      margin-left: 3pt;
       margin-bottom: 4pt;
+    }
+    .paper .links a {
+      margin-left: 3pt;
+      margin-right: 3pt;
     }
     .paper .bibtex {
       display: none;
@@ -166,7 +174,7 @@
         <div class="title">Leveraging 2D Data to Learn Textured 3D Mesh Generation</div>
         <div class="authors">Paul Henderson, Vagia Tsiminaki and Christoph Lampert</div>
         <div class="reference">CVPR 2020 (oral)</div>
-        <div class="links"><a href="#">Paper (coming soon!)</a> - <a href="#">Code (coming soon!)</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://arxiv.org/abs/2004.04180">Paper</a> &ndash; <a href="#">Code (coming soon!)</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@inproceedings{henderson20cvpr,
   title={Leveraging {2D} Data to Learn Textured {3D} Mesh Generation},
@@ -185,7 +193,7 @@
     Appearances</div>
         <div class="authors">Titas Anciukevicius, Christoph Lampert and Paul Henderson</div>
         <div class="reference">CoRR 2020</div>
-        <div class="links"><a href="https://arxiv.org/abs/2004.00642">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://arxiv.org/abs/2004.00642">Paper</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@misc{anciukevicius20corr,
   title={Object-Centric Image Generation with Factored Depths, Locations, and Appearances},
@@ -203,7 +211,7 @@
         <div class="title">Learning Single-Image 3D Reconstruction by Generative Modelling of Shape, Pose and Shading</div>
         <div class="authors">Paul Henderson and Vittorio Ferrari</div>
         <div class="reference">IJCV 2019</div>
-        <div class="links"><a href="https://doi.org/10.1007/s11263-019-01219-8">Paper</a> - <a href="http://arxiv.org/abs/1901.06447">arXiv</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://doi.org/10.1007/s11263-019-01219-8">Paper</a> &ndash; <a href="http://arxiv.org/abs/1901.06447">arXiv</a> &ndash; <a href="https://github.com/pmh47/dirt">Code for differentiable renderer</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@article{henderson19ijcv,
   title={Learning Single-Image {3D} Reconstruction by Generative Modelling of Shape, Pose and Shading},
@@ -222,7 +230,7 @@
         <div class="title">Learning to Generate and Reconstruct 3D Meshes with only 2D Supervision</div>
         <div class="authors">Paul Henderson and Vittorio Ferrari</div>
         <div class="reference">BMVC 2018 (oral)</div>
-        <div class="links"><a href="https://arxiv.org/abs/1807.09259">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://arxiv.org/abs/1807.09259">Paper</a> &ndash; <a href="https://github.com/pmh47/dirt">Code for differentiable renderer</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@inproceedings{henderson18bmvc,
   title={Learning to Generate and Reconstruct {3D} Meshes with only {2D} Supervision},
@@ -240,7 +248,7 @@
         <div class="title">Automatic Generation of Constrained Furniture Layouts</div>
         <div class="authors">Paul Henderson, Kartic Subr and Vittorio Ferrari</div>
         <div class="reference">CoRR 2017</div>
-        <div class="links"><a href="https://arxiv.org/abs/1711.10939">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://arxiv.org/abs/1711.10939">Paper</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@misc{henderson17corr,
   title={Automatic Generation of Constrained Furniture Layouts},
@@ -258,7 +266,7 @@
         <div class="title">End-to-end Training of Object Class Detectors for Mean Average Precision</div>
         <div class="authors">Paul Henderson and Vittorio Ferrari</div>
         <div class="reference">ACCV 2016</div>
-        <div class="links"><a href="https://arxiv.org/abs/1607.03476">Paper</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://arxiv.org/abs/1607.03476">Paper</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@inproceedings{henderson16accv,
   title={End-to-End Training of Object Class Detectors for Mean Average Precision},
@@ -277,7 +285,7 @@
         <div class="title">Automatically Selecting Inference Algorithms for Discrete Energy Minimisation</div>
         <div class="authors">Paul Henderson and Vittorio Ferrari</div>
         <div class="reference">ECCV 2016</div>
-        <div class="links"><a href="https://doi.org/10.1007/978-3-319-46454-1_15">Paper</a> - <a href="https://arxiv.org/abs/1511.06214">arXiv</a> - <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="links"><a href="https://doi.org/10.1007/978-3-319-46454-1_15">Paper</a> &ndash; <a href="https://arxiv.org/abs/1511.06214">arXiv</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@inproceedings{henderson16eccv,
   title={Automatically Selecting Inference Algorithms for Discrete Energy Minimisation},
