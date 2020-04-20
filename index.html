@@ -53,6 +53,7 @@
     #header {
       margin-top: 12pt;
       border-bottom: 1px solid #505050;
+      padding-bottom: 8pt;
     }
     @media(min-width: 400px) {
       #header {
@@ -74,12 +75,17 @@
     #subhead {
       font-weight: 700;
       font-size: 14pt;
+      vertical-align: middle;
+      padding-left: 0.5pt;
     }
     h2 {
       font-family: 'Cinzel', serif;
       font-size: 20pt;
       font-weight: 600;
       border-bottom: 1px solid #505050;
+    }
+    p {
+      text-align: justify;
     }
     .paper
     {
@@ -152,18 +158,22 @@
   <div id="container">
       
     <div id="header">
-      <div id="name">Paul Henderson</div>
-      <div id="email"><i class="far fa-envelope"></i>paul@pmh47.net</div>
+      <div>
+        <div id="name">Paul Henderson</div>
+        <div id="subhead">Postdoc in Computer Vision and Machine Learning</div>
+      </div>
+      <div id="email">paul@pmh47.net</div>
     </div>
-    <!--div id="subhead">Postdoc in Computer Vision and Machine Learning at IST Austria</div-->
 
     <p>
       I am a postdoc in the 
       <a href="https://cvml.ist.ac.at">Computer Vision and Machine Learning Group</a> at the 
       <a href="https://www.ist.ac.at">Institute of Science and Technology (IST) Austria</a>.
-      My research focuses on unsupervised learning, in particular for generative modelling and 3D 
-      reconstruction; it therefore lies at the intersection of machine learning, computer vision, and 
-      computer graphics.
+      My research focuses on building machines that understand the visual world with minimal supervision.
+      This requires endowing deep learning methods with strong, physically-motivated priors about the
+      structure of the world, such as 3D geometry and decomposition into objects.
+      My work therefore lies at the intersection of machine learning, computer vision, and computer 
+      graphics.
     </p>
 
     <h2>Research</h2>
@@ -298,7 +308,7 @@
       </div>
     </div>
 
-    <h2>Biography</h2>
+    <h2>Profile</h2>
 
     <p>
     I completed a BA in Mathematics at the University of Cambridge in 2009, followed 
@@ -311,7 +321,7 @@
     I am currently a postdoc at <a href="https://www.ist.ac.at">IST Austria</a> 
     in the group of <a href="https://cvml.ist.ac.at/index.html">Christoph Lampert</a>.
     </p>
-    <p>My curriculum vitae is available <a href="cv.pdf">here</a></p>
+    <p>My curriculum vitae is available <a href="cv.pdf">here</a>.</p>
 
     <div id="copyright">
             Copyright (C) 2020 Paul Henderson, All Rights Reserved 
