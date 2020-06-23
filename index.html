@@ -27,7 +27,9 @@
     });
   </script>
 
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel:700|Open+Sans&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel:700|Open+Sans&display=swap"/ >
+  <link rel="stylesheet" href="css/academicons.min.css" />
+  <link rel="stylesheet" href="css/fontawesome-all.min.css" />
   <style type="text/css">
     body {
       font-family: 'Open Sans', sans-serif;
@@ -51,8 +53,7 @@
       margin-right: auto;
     }
     #header {
-      margin-top: 12pt;
-      border-bottom: 1px solid #505050;
+      margin-top: 16pt;
       padding-bottom: 8pt;
     }
     @media(min-width: 400px) {
@@ -62,15 +63,19 @@
         align-items: center;
       }
     }
+    #headshot {
+      vertical-align: middle;
+      height: 60pt;
+      margin-right: 8pt;
+    }
+    #header-left {
+      flex-grow: 1;
+    }
     #name {
       vertical-align: middle;
       font-family: 'Cinzel', serif;
       font-size: 2em;
       font-weight: 600;
-    }
-    #email {
-      font-size: 12pt;
-      vertical-align: middle;
     }
     #subhead {
       font-weight: 700;
@@ -78,11 +83,38 @@
       vertical-align: middle;
       padding-left: 0.5pt;
     }
-    h2 {
+    #header-right {
+      font-size: 12pt;
+      vertical-align: middle;
+      text-align: right;
+    }
+    #header-right * {
+      padding: 2pt;
+    }
+    #header-right a i {
+      font-size: 16pt;
+      color: #505050;
+    }
+    #header-right a :hover {
+      color: #303090;
+    }
+    .section-name {
       font-family: 'Cinzel', serif;
       font-size: 20pt;
       font-weight: 600;
-      border-bottom: 1px solid #505050;
+      margin-left: 8pt;
+      margin-right: 8pt;
+    }
+    .section-divider {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top:20pt;
+    }
+    .section-line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: #505050;
     }
     p {
       text-align: justify;
@@ -161,11 +193,19 @@
   <div id="container">
       
     <div id="header">
-      <div>
+      <img id="headshot" src="images/pmh.jpg" />
+      <div id="header-left">
         <div id="name">Paul Henderson</div>
         <div id="subhead">Postdoc in Computer Vision and Machine Learning</div>
       </div>
-      <div id="email">paul@pmh47.net</div>
+      <div id="header-right">
+        <div><i class="far fa-envelope"></i>&nbsp;paul@pmh47.net</div>
+        <div>
+          <a id="scholar" href="https://scholar.google.co.uk/citations?user=HN7fd4MAAAAJ"><i class="ai ai-google-scholar"></i></a>
+          <a id="github" href="https://github.com/pmh47"><i class="fab fa-github"></i></a>
+          <a id="twitter" href="https://twitter.com/pmh47_ml"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
     </div>
 
     <p>
@@ -179,7 +219,11 @@
       graphics.
     </p>
 
-    <h2>Research</h2>
+    <div class="section-divider">
+      <div class="section-line"></div>
+      <div class="section-name">Research</div>
+      <div class="section-line"></div>
+    </div>
 
     <div class="paper">
       <div class="thumbnail"><img src="images/paper-thumbnails/cvpr20.png" /></div>
@@ -311,8 +355,11 @@
       </div>
     </div>
 
-    <h2>Profile</h2>
-
+    <div class="section-divider">
+      <div class="section-line"></div>
+      <div class="section-name">Profile</div>
+      <div class="section-line"></div>
+    </div>
     <p>
     I completed a BA in Mathematics at the University of Cambridge in 2009, followed 
     by an MSc in Informatics at the University of Edinburgh in 2010.
@@ -327,7 +374,7 @@
     <p>My curriculum vitae is available <a href="cv.pdf">here</a>.</p>
 
     <div id="copyright">
-            Copyright (C) 2020 Paul Henderson, All Rights Reserved 
+            Copyright (C) 2014&ndash;2020 Paul Henderson, All Rights Reserved 
     </div>
 
   </div>
