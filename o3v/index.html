@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Unsupervised object-centric video generation and decomposition in 3D</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Open+Sans&display=swap"/ >
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12pt;
+      line-height: 1.4;
+      color: #505050;
+    }
+    a {
+      color: #3030d0;
+      text-decoration: none;
+    }
+    #container {
+      max-width: 900px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #header {
+      margin-top: 16pt;
+      padding-bottom: 8pt;
+    }
+    #header #title {
+        font-family: 'Roboto', serif;
+        font-size: 24pt;
+        font-weight: 600;
+        margin-bottom: 8pt;
+    }
+    #header #authors {
+        font-size: 16pt;
+        /*font-weight: 600;*/
+    }
+    #header #links {
+        margin-top: 20pt;
+        font-weight: 600;
+    }
+    #header #links a {
+        margin: 1pt;
+        padding: 5pt 8pt 5pt 8pt;
+        border: solid 2px #3030d0;
+    }
+    #header #links a:hover {
+        background-color: #e8e8ff;
+    }
+    .section-name {
+      font-family: 'Roboto', serif;
+      font-size: 20pt;
+      font-weight: 600;
+      margin-left: 10pt;
+      margin-right: 10pt;
+    }
+    .section-divider {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top:20pt;
+    }
+    .section-line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: #505050;
+    }
+    p {
+      text-align: justify;
+    }
+    #bibtex {
+        font-family: 'Roboto Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+      
+    <div id="header">
+        <div id="title">Unsupervised object-centric video generation <br />and decomposition in 3D</div>
+        <div id="authors"><a href="..">Paul Henderson</a> &nbsp;&bullet;&nbsp; <a href="https://ist.ac.at/~chl">Christoph H. Lampert</a> &nbsp; (<a href="https://ist.ac.at">IST Austria</a>)</div>
+        <div id="links"><a href="#">Paper</a><!-- &ndash; <a href="https://arxiv.org/abs/">Paper</a>--></div>
+    </div>
+
+    
+
+    <div class="section-divider">
+        <div class="section-line"></div>
+        <div class="section-name">Abstract</div>
+        <div class="section-line"></div>
+      </div>
+  
+      <p id="abstract">
+        A natural approach to generative modeling of videos is to represent them as a composition of moving objects. Recent works model a set of 
+        2D sprites over a slowly-varying background, but without considering the underlying 3D scene that gives rise to them. We instead propose to 
+        model a video as the view seen while moving through a scene with multiple 3D objects and a 3D background. Our model is trained from 
+        monocular videos without any supervision, yet learns to generate coherent 3D scenes containing several moving objects. We conduct detailed 
+        experiments on two datasets, going beyond the visual complexity supported by state-of-the-art generative approaches. We evaluate our 
+        method on depth-prediction and 3D object detection---tasks which cannot be addressed by those earlier works---and show it out-performs 
+        them even on 2D instance segmentation and tracking.
+    </p>
+
+    <!--div class="section-divider">
+        <div class="section-line"></div>
+        <div class="section-name">Results</div>
+        <div class="section-line"></div>
+      </div-->
+  
+
+      <div class="section-divider">
+        <div class="section-line"></div>
+        <div class="section-name">Bibtex</div>
+        <div class="section-line"></div>
+      </div>
+
+      <div id="bibtex">
+        @misc{henderson20corr,<br />
+        &nbsp;&nbsp;title={Unsupervised object-centric video generation and decomposition in 3D},<br />
+        &nbsp;&nbsp;author={Henderson, Paul and Lampert, Christoph H.},<br />
+        &nbsp;&nbsp;howpublished={arXiv:????.?????},<br />
+        &nbsp;&nbsp;year={2020}<br />
+        }
+        </div>
+  
+      </div>
+    
+  </body>
+</html>
