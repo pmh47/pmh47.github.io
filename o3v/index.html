@@ -6,6 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../jquery.fittext.js"></script>
+  <script type="text/javascript">
+    $(document).ready ( function(){
+       $('.show-more-button').click(function(event) {
+         let moreVideosDiv = $(event.target).parents('.results').find('.more-videos');
+         moreVideosDiv.toggle();
+         $(event.target).toggle();
+         return false;
+       });
+       $('.results .column-header').fitText(0.7, {maxFontSize: '12pt'});
+    });
+    setTimeout(function() {$(window).trigger('resize');}, 1000);
+  </script>
+
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Open+Sans&display=swap"/ >
   <style type="text/css">
     body {
@@ -36,7 +51,21 @@
     }
     #header #authors {
         font-size: 16pt;
+        margin-bottom: 16pt;
         /*font-weight: 600;*/
+    }
+    @media(min-width: 950px) {
+        #header video {
+            height: 33pt;
+            margin-left: 1pt;
+            margin-right: 8pt;
+        }
+    }
+    @media(max-width: 949px) {
+        #header video {
+            width: 50%;
+            margin-left: 1pt;
+        }
     }
     #header #links {
         margin-top: 20pt;
@@ -48,7 +77,8 @@
         border: solid 2px #3030d0;
     }
     #header #links a:hover {
-        background-color: #e8e8ff;
+        margin: 0pt;
+        border-width: 3px;
     }
     .section-name {
       font-family: 'Roboto', serif;
@@ -61,7 +91,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top:20pt;
+      margin-top: 16pt;
     }
     .section-line {
       flex-grow: 1;
@@ -71,25 +101,95 @@
     p {
       text-align: justify;
     }
+    .figure {
+        width: 85%;
+        margin: 16pt;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .figure img {
+        width: 100%;
+    }
+    .figure .caption {
+        font-size: small;
+        text-align: justify;
+        width: 100%;
+    }
+    .results {
+        min-width: 300px;
+        margin-bottom: 16pt;
+    }
+    .results video {
+        width: 100%;
+    }
+    .results .experiment-name {
+        font-family: 'Roboto', serif;
+        font-size: 16pt;
+        font-weight: 600;
+        margin-top: 8pt;
+        margin-bottom: 8pt;
+    }
+    .results .experiment-name .dataset-name {
+        font-size: 14pt;
+    }
+    .results .headers {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        text-align: center;
+        /*font-size: small;*/
+        font-weight: bold;
+        margin-bottom: 6pt;
+    }
+    @media(max-width: 600px) {
+        .results .headers {
+            font-size: 7pt;
+        }
+    }
+    .results .decomp-headers {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .results .gen-headers {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .results .column-header {
+        align-self: center;
+    }
+    .results .show-more-button {
+        width: 100%;
+        text-align: right;
+        font-weight: bold;
+        color: #3030d0;
+        cursor: pointer;
+    }
+    .results .more-videos {
+        display: none;
+    }
     #bibtex {
         font-family: 'Roboto Mono', monospace;
+        margin-bottom: 32pt;
     }
   </style>
 </head>
 <body>
   <div id="container">
-      
+
     <div id="header">
         <div id="title">Unsupervised object-centric video generation <br />and decomposition in 3D</div>
-        <div id="authors"><a href="..">Paul Henderson</a> &nbsp;&bullet;&nbsp; <a href="https://ist.ac.at/~chl">Christoph H. Lampert</a> &nbsp; (<a href="https://ist.ac.at">IST Austria</a>)</div>
+        <div id="authors"><a href="..">Paul Henderson</a> &nbsp;&bullet;&nbsp; <a href="https://ist.ac.at/~chl">Christoph H. Lampert</a> 
+            <!-- &nbsp; <img src="../images/ist.png" height="36pt" />  -->
+            <!-- (<a href="https://ist.ac.at">IST Austria</a>) --></div>
+        <video autoplay muted loop><source src="videos/gqn-voxels/recon/000014_1.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/recon/000001_0.mp4" type="video/mp4" /></video>
+      
         <div id="links"><a href="#">Paper</a><!-- &ndash; <a href="https://arxiv.org/abs/">Paper</a>--></div>
     </div>
 
-    
 
     <div class="section-divider">
         <div class="section-line"></div>
-        <div class="section-name">Abstract</div>
+        <div class="section-name">Overview</div>
         <div class="section-line"></div>
       </div>
   
@@ -103,29 +203,175 @@
         them even on 2D instance segmentation and tracking.
     </p>
 
-    <!--div class="section-divider">
+    <div class="figure">
+        <img src="model.png" />
+        <div class="caption">
+            <b>Left:</b>
+            Our generative model represents videos as a 3D scene viewed by a moving camera.
+            It has a single latent variable, which is mapped to parameters of multiple objects and a background.
+            Each object has a pose and an appearance embedding, which is decoded to an <i>explicit</i> representation of its 3D shape and color.
+            <b>Right:</b>
+            Plan view of our 3D scene structure, viewed by a moving camera (green).
+            We define a grid of candidate objects in 3D space (gray boxes); indicator variables specify which are present in a given scene (blue).
+            Each object has a displacement (orange arrows) and rotation, which may vary over time.
+            The background is a spherical shell (gray dashed), deformed (purple arrows) into the correct shape (red) to capture the surrounding environment
+        </div>
+    </div>
+
+    <div class="section-divider">
         <div class="section-line"></div>
         <div class="section-name">Results</div>
         <div class="section-line"></div>
-      </div-->
+    </div>
+
+    <div class="results" style="width: 70%;">
+        <div class="experiment-name"><span class="dataset-name">(ROOMS)</span> decomposition</div>
+
+        <div class="headers decomp-headers">
+            <div class="column-header">original</div>
+            <div class="column-header">recon.</div>
+            <div class="column-header">inferred background</div>
+            <div class="column-header">inferred objects</div>
+            <div class="column-header">gt instance segmentation</div>
+            <div class="column-header">inferred instance segmentation</div>
+            <div class="column-header">gt depth</div>
+            <div class="column-header">inferred depth</div>
+        </div>
+
+        <video autoplay muted loop><source src="videos/gqn-voxels/recon/000002_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/gqn-voxels/recon/000006_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/gqn-voxels/recon/000009_0.mp4" type="video/mp4" /></video>
+        <div class="show-more-button">show more &gt;&gt;</div>
+        <div class="more-videos">
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000014_1.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000017_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000017_2.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000018_1.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000020_2.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000030_3.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000031_2.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000033_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000040_1.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000045_2.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/recon/000049_0.mp4" type="video/mp4" /></video>
+        </div>
+
+    </div>
   
+    <div class="results" style="width: 44%;">
+        <div class="experiment-name"><span class="dataset-name">(ROOMS)</span> generation</div>
 
-      <div class="section-divider">
-        <div class="section-line"></div>
-        <div class="section-name">Bibtex</div>
-        <div class="section-line"></div>
-      </div>
+        <div class="headers gen-headers">
+            <div class="column-header">generated video</div>
+            <div class="column-header">generated background</div>
+            <div class="column-header">generated objects</div>
+            <div class="column-header">instance segmentation</div>
+            <div class="column-header">depths</div>
+        </div>
 
-      <div id="bibtex">
+        <video autoplay muted loop><source src="videos/gqn-voxels/gen/000014_1.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/gqn-voxels/gen/000040_1.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/gqn-voxels/gen/000070_3.mp4" type="video/mp4" /></video>
+        <div class="show-more-button">show more &gt;&gt;</div>
+        <div class="more-videos">
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000064_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000079_1.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000081_1.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000093_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000100_2.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000118_3.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/gqn-voxels/gen/000143_0.mp4" type="video/mp4" /></video>
+        </div>
+
+    </div>
+
+    <div class="results" style="width: 80%;">
+        <div class="experiment-name"><span class="dataset-name">(TRAFFIC)</span> decomposition</div>
+
+        <div class="headers decomp-headers">
+            <div class="column-header">original</div>
+            <div class="column-header">recon.</div>
+            <div class="column-header">inferred background</div>
+            <div class="column-header">inferred objects</div>
+            <div class="column-header">gt instance segmentation</div>
+            <div class="column-header">inferred instance segmentation</div>
+            <div class="column-header">gt depth</div>
+            <div class="column-header">inferred depth</div>
+        </div>
+
+        <video autoplay muted loop><source src="videos/carla-voxels/recon/000065_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/recon/000002_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/recon/000055_0.mp4" type="video/mp4" /></video>
+        <div class="show-more-button">show more &gt;&gt;</div>
+        <div class="more-videos">
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/000038_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/000013_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/000001_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/000198_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/001155_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/001723_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/002565_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/002566_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/002729_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/003274_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/003424_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/004178_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/004876_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/recon/005159_0.mp4" type="video/mp4" /></video>
+        </div>
+
+    </div>
+  
+    <div class="results" style="width: 50%;">
+        <div class="experiment-name"><span class="dataset-name">(TRAFFIC)</span> generation</div>
+
+        <div class="headers gen-headers">
+            <div class="column-header">generated video</div>
+            <div class="column-header">generated background</div>
+            <div class="column-header">generated objects</div>
+            <div class="column-header">instance segmentation</div>
+            <div class="column-header">depths</div>
+        </div>
+
+        <video autoplay muted loop><source src="videos/carla-voxels/gen/000057_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/gen/000018_0.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/gen/000020_0.mp4" type="video/mp4" /></video>
+        <div class="show-more-button">show more &gt;&gt;</div>
+        <div class="more-videos">
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000031_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000032_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000045_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000051_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000064_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000065_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000081_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000084_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000089_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000119_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000178_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000187_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000191_0.mp4" type="video/mp4" /></video>
+            <video autoplay muted loop><source src="videos/carla-voxels/gen/000230_0.mp4" type="video/mp4" /></video>
+        </div>
+
+    </div>
+
+    <div class="section-divider">
+    <div class="section-line"></div>
+    <div class="section-name">Bibtex</div>
+    <div class="section-line"></div>
+    </div>
+
+    <div id="bibtex">
         @misc{henderson20corr,<br />
-        &nbsp;&nbsp;title={Unsupervised object-centric video generation and decomposition in 3D},<br />
+        &nbsp;&nbsp;title={Unsupervised object-centric video generation and decomposition in {3D}},<br />
         &nbsp;&nbsp;author={Henderson, Paul and Lampert, Christoph H.},<br />
         &nbsp;&nbsp;howpublished={arXiv:????.?????},<br />
         &nbsp;&nbsp;year={2020}<br />
         }
-        </div>
-  
-      </div>
+    </div>
+
+    </div>
     
   </body>
 </html>
