@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Unsupervised Video Prediction from a Single Frame by Estimating 3D Dynamic Scene Structure</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../jquery.fittext.js"></script>
+  <script type="text/javascript">
+    $(document).ready ( function(){
+       $('.show-more-button').click(function(event) {
+         let moreVideosDiv = $(event.target).parents('.results').find('.more-videos');
+         moreVideosDiv.toggle();
+         $(event.target).toggle();
+         return false;
+       });
+       $('.results .column-header').fitText(0.7, {maxFontSize: '12pt'});
+    });
+    setTimeout(function() {$(window).trigger('resize');}, 1000);
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Open+Sans&display=swap"/ >
+  <style type="text/css">
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12pt;
+      line-height: 1.4;
+      color: #505050;
+    }
+    a {
+      color: #3030d0;
+      text-decoration: none;
+    }
+    #container {
+      max-width: 900px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #header {
+      margin-top: 16pt;
+      padding-bottom: 8pt;
+    }
+    #header #title {
+        font-family: 'Roboto', serif;
+        font-size: 24pt;
+        font-weight: 600;
+        margin-bottom: 8pt;
+    }
+    #header #authors {
+        font-size: 16pt;
+        margin-bottom: 16pt;
+        /*font-weight: 600;*/
+    }
+    @media(min-width: 950px) {
+        #header video {
+            height: 33pt;
+            margin-left: 1pt;
+            margin-right: 8pt;
+        }
+    }
+    @media(max-width: 949px) {
+        #header video {
+            width: 50%;
+            margin-left: 1pt;
+        }
+    }
+    #header #links {
+        margin-top: 20pt;
+        font-weight: 600;
+    }
+    #header #links a {
+        margin: 1pt;
+        padding: 5pt 8pt 5pt 8pt;
+        border: solid 2px #3030d0;
+    }
+    #header #links a:hover {
+        margin: 0pt;
+        border-width: 3px;
+    }
+    .section-name {
+      font-family: 'Roboto', serif;
+      font-size: 20pt;
+      font-weight: 600;
+      margin-left: 10pt;
+      margin-right: 10pt;
+    }
+    .section-divider {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16pt;
+    }
+    .section-line {
+      flex-grow: 1;
+      height: 1px;
+      background-color: #505050;
+    }
+    p {
+      text-align: justify;
+    }
+    .figure {
+        width: 85%;
+        margin: 16pt;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .figure img {
+        width: 100%;
+    }
+    .figure .caption {
+        font-size: small;
+        text-align: justify;
+        width: 100%;
+    }
+    .results {
+        min-width: 300px;
+        margin-bottom: 16pt;
+    }
+    .results video {
+        width: 100%;
+    }
+    .results .experiment-name {
+        font-family: 'Roboto', serif;
+        font-size: 16pt;
+        font-weight: 600;
+        margin-top: 8pt;
+        margin-bottom: 8pt;
+    }
+    .results .experiment-name .dataset-name {
+        font-size: 14pt;
+    }
+    .results .headers {
+        width: 100%;
+        max-width: 100%;
+        display: grid;
+        text-align: center;
+        /*font-size: small;*/
+        font-weight: bold;
+        margin-bottom: 6pt;
+    }
+    @media(max-width: 600px) {
+        .results .headers {
+            font-size: 7pt;
+        }
+    }
+    .results .decomp-headers {
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .results .gen-headers {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    .results .column-header {
+        align-self: center;
+    }
+    .results .show-more-button {
+        width: 100%;
+        text-align: right;
+        font-weight: bold;
+        color: #3030d0;
+        cursor: pointer;
+    }
+    .results .more-videos {
+        display: none;
+    }
+    #bibtex {
+        font-family: 'Roboto Mono', monospace;
+        margin-bottom: 32pt;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+
+    <div id="header">
+        <div id="title">Unsupervised Video Prediction from a Single Frame<br />by Estimating 3D Dynamic Scene Structure</div>
+        <div id="authors"><a href="..">Paul Henderson</a> &nbsp;&bullet;&nbsp; <a href="https://ist.ac.at/~chl">Christoph H. Lampert</a> &nbsp;&bullet;&nbsp; <a href="http://berndbickel.com/">Bernd Bickel</a>
+            <!-- &nbsp; <img src="../images/ist.png" height="36pt" />  -->
+            <!-- (<a href="https://ist.ac.at">IST Austria</a>) --></div>
+        <!--video autoplay muted loop><source src="videos/gqn-voxels/recon/000014_1.mp4" type="video/mp4" /></video>
+        <video autoplay muted loop><source src="videos/carla-voxels/recon/000001_0.mp4" type="video/mp4" /></video-->
+      
+        <div id="links">
+            <!--a href="https://proceedings.neurips.cc/paper/2020/hash/20125fd9b2d43e340a35fb0278da235d-Abstract.html">Paper</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://arxiv.org/abs/2007.06705">arXiv</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/pmh47/o3v">Code</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="https://youtu.be/7M_IIV52FwA">Video</a>
+            &nbsp;&nbsp;&nbsp;
+            <a href="poster-v1.pdf">Poster</a-->
+        </div>
+    </div>
+
+
+    <div class="section-divider">
+        <div class="section-line"></div>
+        <div class="section-name">Overview</div>
+        <div class="section-line"></div>
+      </div>
+  
+      <p id="abstract">
+          Our goal in this work is to generate realistic videos given just one initial frame as input. Existing
+          unsupervised approaches to this task do not consider the fact that a video typically shows a 3D environment,
+          and that this should remain coherent from frame to frame even as the camera and objects move. We address this
+          by developing a model that first estimates the latent 3D structure of the scene, including the segmentation of
+          any moving objects. It then predicts future frames by simulating the object and camera dynamics, and rendering
+          the resulting views. Importantly, it is trained end-to-end using only the unsupervised objective of predicting
+          future frames, without any 3D information nor segmentation annotations. Experiments on two challenging
+          datasets of natural videos show that our model can estimate 3D structure and motion segmentation from a single
+          frame, and hence generate plausible and varied predictions.
+    </p>
+
+    <div class="section-divider">
+        <div class="section-line"></div>
+        <div class="section-name">Results</div>
+        <div class="section-line"></div>
+    </div>
+
+      <a name="waymofig"></a>
+      <a name="re10kfig"></a>
+      Coming soon!
+
+    <div class="section-divider">
+    <div class="section-line"></div>
+    <div class="section-name">Bibtex</div>
+    <div class="section-line"></div>
+    </div>
+
+    <!--div id="bibtex">
+        @inproceedings{henderson20neurips,<br />
+        &nbsp;&nbsp;title={Unsupervised object-centric video generation and decomposition in {3D}},<br />
+        &nbsp;&nbsp;author={Henderson, Paul and Lampert, Christoph H.},<br />
+        &nbsp;&nbsp;booktitle={Advances in Neural Information Processing Systems (NeurIPS) 33},<br />
+        &nbsp;&nbsp;year={2020}<br />
+        }
+    </div-->
+
+    </div>
+    
+  </body>
+</html>
