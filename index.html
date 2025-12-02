@@ -183,6 +183,26 @@
       width: 100%;
       background: #eeeeee;
     }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 0.8em 1.2em;      /* vertical | horizontal spacing */
+      margin-top: 0.6em;
+      margin-bottom: 2em;
+    }
+    .news-item {
+      line-height: 1.4;
+      padding: 0.4em;
+      background-color: #f8f8f8;
+      border-radius: 0.4em;
+      border: 1px solid #ddd;
+    }
+    .news-item .date {
+      font-size: 0.85em;
+      color: #666;
+      margin-right: 0.4em;
+      white-space: nowrap;
+    }
     #copyright {
       margin-top: 18pt;
       border-top: 1px solid #a0a0a0;
@@ -214,22 +234,37 @@
     <p>
       I am a Lecturer (roughly equivalent to Assistant Professor) in Machine Learning at the <a href="https://www.gla.ac.uk">University of Glasgow</a>.
       My research focuses on building machines that understand the visual world with minimal human input.
-      More specifically I work on <b>generative AI</b>, <b>probabilistic machine learning</b>, and minimally-supervised approaches to <b>3D computer vision</b>.
-      I also have various projects applying these methods in the physical sciences and healthcare.
+      I work on <b>generative AI</b>, <b>probabilistic machine learning</b> and <b>3D computer vision</b>,
+      with various projects applying these methods in the physical sciences and healthcare.
+      I'm also helping to digitally unroll the <a href="https://scrollprize.org/">Herculaneum Papryi</a>.
       My CV is available <a href="cv.pdf">here</a>.
     </p>
 
-    <p style="border: 1px; border-color:gray; border-style:solid; padding: 8pt;">
+    <p style="border: 1px solid #ddd; padding: 8pt; border-radius: 0.4em; background-color: #f8f8f8;">
       <b>Prospective PhD students:</b>
-      I am currently accepting new PhD students. There are
+      I am currently accepting new PhD students, with a focus on data-efficient learning of visual concepts.
+      There are
       <a href="https://www.gla.ac.uk/schools/computing/postgraduateresearch/prospectivestudents/">scholarships</a>
       available for strong candidates.
-      Please first check that your research interests align with mine (read some of the papers below!).
-      If so, send me an email with your CV, transcripts and a short research proposal mentioning why you want to 
+      If you are considering applying, send me an email with your CV, transcripts and a short research proposal mentioning why you want to 
       work in my group in particular.
       Applicants should have a strong background in coding and maths, including probability and linear algebra.
     </p>
 
+    <div class="section-divider">
+      <div class="section-line"></div>
+      <div class="section-name">News</div>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="news-grid">
+      <div class="news-item"><span class="date">2025-11</span> Two papers accepted at WACV 2026</div>
+      <div class="news-item"><span class="date">2025-06</span> Outstanding Reviewer award for CVPR 2025</div>
+      <div class="news-item"><span class="date">2025-03</span> Two papers accepted at SIGGRAPH 2025</div>
+      <div class="news-item"><span class="date">2025-01</span> $30,000 <a href="https://scrollprize.substack.com/p/awarding-the-amazing-autosegmentation">prize</a> for digital unrolling of the Herculaneum Papyri</div>
+      <div class="news-item"><span class="date">2024-11</span> I was a Programme Chair for <a href="https://bmvc2024.org/">BMVC 2024</a>, held in Glasgow</div>
+    </div>
+    
     <div class="section-divider">
       <div class="section-line"></div>
       <div class="section-name">Research</div>
