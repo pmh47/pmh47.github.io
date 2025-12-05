@@ -290,7 +290,8 @@
     </div>
 
     <div class="paper">
-      <div class="thumbnail"><img src="images/paper-thumbnails/xu25siggraph.jpg" /></div>
+      <div class="thumbnail"><video autoplay muted loop><source src="team-kick.mp4" type="video/mp4" /></video></div>
+      <!-- ffmpeg -i team-kick.mkv -filter_complex "[0:v]scale=600:-1[scaled];[scaled]split=3[a][b][c];[a]trim=start=0.5:end=3.533,setpts=PTS-STARTPTS[middle];[b]trim=start=3.533,setpts=PTS-STARTPTS[end];[c]trim=end=0.5,setpts=PTS-STARTPTS[start];[end][start]blend=all_expr='A*(1-T/0.5)+B*(T/0.5)':shortest=1[blended];[middle][blended]concat[v]" -map "[v]" -c:v libx264 -crf 28 -preset medium team-kick.mp4 -->
       <div class="content">
         <div class="title">Multi-Person Interaction Generation from Two-Person Motion Priors</div>
         <div class="authors">Wenning&nbsp;Xu, Shiyu&nbsp;Fan, Paul&nbsp;Henderson and Edmond&nbsp;S.&nbsp;L.&nbsp;Ho</div>
