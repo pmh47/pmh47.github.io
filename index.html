@@ -166,6 +166,34 @@
     .paper .authors {
       margin-left: 3pt;
     }
+    .paper .authors.author-tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: help;
+    }
+    .paper .authors.author-tooltip:focus {
+      outline: 1px dotted #505050;
+    }
+    .paper .authors .author-popup {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 1.6em;
+      z-index: 2;
+      width: 540px;
+      max-width: calc(100vw - 40px);
+      padding: 8pt;
+      background: #ffffff;
+      border: 1px solid #909090;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+      color: #303030;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+    .paper .authors.author-tooltip:hover .author-popup,
+    .paper .authors.author-tooltip:focus .author-popup {
+      display: block;
+    }
     .paper .reference {
       font-weight: 700;
       margin-left: 3pt;
@@ -274,17 +302,37 @@
     </div>
 
     <div class="paper">
+      <div class="thumbnail"><img src="images/paper-thumbnails/angelotti26unwrapping.jpg" /></div>
+      <div class="content">
+        <div class="title">Complete virtual unwrapping and reading of a rolled Herculaneum papyrus</div>
+        <div class="authors author-tooltip" tabindex="0">Giorgio&nbsp;Angelotti <i>et al.</i><span class="author-popup">Giorgio Angelotti, Stephen Parsons, Federica Nicolardi, Youssef Nader, Sean Johnson, David Josey, Paul Henderson, Hendrik Schilling, Johannes Rudolph, Forrest McDonald, Elian Rafael Dal Pr&aacute;, Paul Tafforeau, Alessandro Mirone, C. Seth Parker, Jan Paul Posma, Benjamin Kyles, Claudio Vergara, Alessia Lavorante, Rossella Villa, Maria Chiara Robustelli, Marzia D&rsquo;Angelo, Gianluca Del Mastro, Michael McOsker, Kilian Fleischer, Christy Chapman, Nat Friedman and W. Brent Seales</span></div>
+        <div class="reference">Technical Report, 2026<span class="new">&nbsp;(new!)</span></div>
+        <div class="links"><a href="https://scrollprize.org/pdf/main.pdf">Paper</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="bibtex">
+          <textarea readonly>@article{angelotti26unwrapping,
+  title={Complete virtual unwrapping and reading of a rolled Herculaneum papyrus},
+  author={Angelotti, Giorgio and Parsons, Stephen and Nicolardi, Federica and Nader, Youssef and Johnson, Sean and Josey, David and Henderson, Paul and Schilling, Hendrik and Rudolph, Johannes and McDonald, Forrest and Dal Pr&aacute;, Elian Rafael and Tafforeau, Paul and Mirone, Alessandro and Parker, C. Seth and Posma, Jan Paul and Kyles, Benjamin and Vergara, Claudio and Lavorante, Alessia and Villa, Rossella and Robustelli, Maria Chiara and D'Angelo, Marzia and Del Mastro, Gianluca and McOsker, Michael and Fleischer, Kilian and Chapman, Christy and Friedman, Nat and Seales, W. Brent},
+  journal={Preprint},
+  url={https://scrollprize.org/pdf/main.pdf},
+  year={2026}
+}</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="paper">
       <div class="thumbnail"><img src="images/paper-thumbnails/angelotti26ink.jpg" /></div>
       <div class="content">
         <div class="title">Ink Detection from Surface Topography of the Herculaneum Papyri</div>
         <div class="authors">Giorgio&nbsp;Angelotti, Federica&nbsp;Nicolardi, Paul&nbsp;Henderson and W.&nbsp;Brent&nbsp;Seales</div>
-        <div class="reference">arXiv 2026<span class="new">&nbsp;(new!)</span></div>
-        <div class="links"><a href="https://arxiv.org/abs/2603.27698">Paper</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
+        <div class="reference">Scientific Reports, 2026<span class="new">&nbsp;(new!)</span></div>
+        <div class="links"><a href="https://doi.org/10.1038/s41598-026-58467-1">Paper</a> &ndash; <a href="https://arxiv.org/abs/2603.27698">arXiv</a> &ndash; <a href="#" class="bibtex-link">Bibtex</a></div>
         <div class="bibtex">
           <textarea readonly>@article{angelotti26ink,
   title={Ink Detection from Surface Topography of the Herculaneum Papyri},
   author={Angelotti, Giorgio and Nicolardi, Federica and Henderson, Paul and Seales, W. Brent},
-  journal={arXiv preprint arXiv:2603.27698},
+  journal={Scientific Reports},
+  doi={10.1038/s41598-026-58467-1},
   year={2026}
 }</textarea>
         </div>
